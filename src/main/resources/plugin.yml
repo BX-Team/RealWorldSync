@@ -2,3 +2,20 @@ name: RealWorldSync
 version: '${version}'
 main: gq.bxteam.realworldsync.RealWorldSync
 api-version: '1.16'
+load: POSTWORLD
+folia-supported: true
+softdepend: [ PlaceholderAPI ]
+authors: [ NONPLAYT ]
+description: Synchronizes time and weather from the real world to the game
+website: https://modrinth.com/plugin/rws
+commands:
+  rws:
+    aliases: [rws, realworldsync, world, worldsync]
+    description: Main command
+permissions:
+  rws.user:
+    description: Default user command
+    default: true
+  rws.admin:
+    description: Admin command
+    default: op
