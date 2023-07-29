@@ -1,0 +1,4 @@
+name: RealWorldSync
+version: '${version}'
+main: gq.bxteam.realworldsync.RealWorldSync
+api-version: '1.16'
