@@ -21,6 +21,7 @@
         <a href="https://github.com/BX-Team/RealWorldSync/issues">Issues</a>
     </b>
 </div>
+<br>
 
 **RealWorldSync (RWS)** is a simple and lightweight plugin that allows you to sync the time and weather of your server with any location(s) in the real world.
 
