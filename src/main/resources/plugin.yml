@@ -10,12 +10,12 @@ description: Synchronizes time and weather from the real world to the game
 website: https://modrinth.com/plugin/rws
 commands:
   rws:
-    aliases: [rws, realworldsync, world, worldsync]
+    aliases: [rws, realworldsync, timesync]
     description: Main command
 permissions:
   rws.user:
-    description: Default user command
+    description: Default user commands
     default: true
   rws.admin:
-    description: Admin command
+    description: Gives access to admin command
     default: op

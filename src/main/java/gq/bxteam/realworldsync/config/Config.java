@@ -16,8 +16,8 @@ import java.util.logging.Level;
 
 public class Config {
     private static final YamlConfiguration cfg = new YamlConfiguration();
-    public static boolean check_for_updates;
-    public static boolean enable_metrics;
+    public static boolean opt_check_for_updates;
+    public static boolean opt_enable_metrics;
     public static boolean time_enabled;
     public static String time_world;
     public static int time_update;
@@ -41,8 +41,8 @@ public class Config {
             }
         }
 
-        Config.check_for_updates = cfg.getBoolean("check-for-updates");
-        Config.enable_metrics = cfg.getBoolean("enable-metrics");
+        Config.opt_check_for_updates = cfg.getBoolean("options.check-for-updates");
+        Config.opt_enable_metrics = cfg.getBoolean("options.enable-metrics");
 
         Config.time_enabled = cfg.getBoolean("time.enabled");
         Config.time_world = cfg.getString("time.world");

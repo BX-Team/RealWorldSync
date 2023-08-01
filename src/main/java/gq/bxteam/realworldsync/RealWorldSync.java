@@ -31,14 +31,14 @@ public class RealWorldSync extends JavaPlugin {
         getCommand("rws").setTabCompleter(new Commands());
 
         // Check for updates
-        if (Config.check_for_updates) {
+        if (Config.opt_check_for_updates) {
             if (!UpdateChecker.fetchVersionFromGithub("https://raw.githubusercontent.com/BX-Team/RealWorldSync/master/VERSION", RealWorldSync.getPlugin().getDescription().getVersion())) {
                 LogUtil.sendConsoleLog("The new update of RealWorldSync was found! We recommend to update here: https://modrinth.com/plugin/rws", LogType.WARN);
             }
         }
 
         // Metrics initialize
-        if (Config.enable_metrics) {
+        if (Config.opt_enable_metrics) {
             LogUtil.sendConsoleLog("&aEnabling metrics", LogType.INFO);
             Metrics metrics = new Metrics(this, 19076);
             metrics.addCustomChart(new Metrics.SimplePie("time_sync_enabled", () -> String.valueOf(Config.time_enabled)));

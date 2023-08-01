@@ -5,11 +5,13 @@
 # ██║░░██║███████╗██║░░██║███████╗░░╚██╔╝░╚██╔╝░╚█████╔╝██║░░██║███████╗██████╔╝██████╔╝░░░██║░░░██║░╚███║╚█████╔╝
 # ╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝╚══════╝░░░╚═╝░░░╚═╝░░░╚════╝░╚═╝░░╚═╝╚══════╝╚═════╝░╚═════╝░░░░╚═╝░░░╚═╝░░╚══╝░╚════╝░
 
+# Wiki: https://github.com/BX-Team/RealWorldSync/wiki
 # Discord server: https://discord.gg/p7cxhw7E2M
 # Modrinth: https://modrinth.com/plugin/rws
 
-check-for-updates: true
-enable-metrics: true
+options:
+  check-for-updates: true
+  enable-metrics: true
 time:
   enabled: false
   update-interval: 20
