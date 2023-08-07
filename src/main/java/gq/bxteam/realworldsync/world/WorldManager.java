@@ -35,7 +35,7 @@ public class WorldManager {
                     }
                 }
             }
-        }.runTaskTimerAsynchronously(RealWorldSync.getPlugin(), 0L, Config.time_update);
+        }.runTaskTimer(RealWorldSync.getPlugin(), 0L, Config.time_update);
     }
 
     public static void setupWeatherSynchronization() {
@@ -68,7 +68,7 @@ public class WorldManager {
                     LogUtil.sendConsoleLog("There was a problem getting the weather data", LogType.ERROR);
                 }
             }
-        }.runTaskTimerAsynchronously(RealWorldSync.getPlugin(), 0L, Config.weather_update);
+        }.runTaskTimer(RealWorldSync.getPlugin(), 0L, Config.weather_update);
     }
 
     public static void enableDaylightCycle() {
