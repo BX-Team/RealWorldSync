@@ -3,6 +3,8 @@ package gq.bxteam.realworldsync.cmds;
 import gq.bxteam.realworldsync.RealWorldSync;
 import gq.bxteam.realworldsync.config.Config;
 import gq.bxteam.realworldsync.config.Language;
+import gq.bxteam.realworldsync.utils.log.LogType;
+import gq.bxteam.realworldsync.utils.log.LogUtil;
 import gq.bxteam.realworldsync.world.WorldManager;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
@@ -60,6 +62,10 @@ public class Commands implements CommandExecutor, TabCompleter {
                 case "version" -> {
                     if (sender.hasPermission("rws.user")) {
                         sender.sendMessage(MiniMessage.miniMessage().deserialize(Language.msg_prefix + Language.msg_version, Placeholder.parsed("version", "<green>" + RealWorldSync.getPlugin().getDescription().getVersion())));
+                        RealWorldSync.checkForUpdates().ifPresent(latestVersion -> {
+                            sender.sendMessage(MiniMessage.miniMessage().deserialize("<green>An update is available: " + latestVersion));
+                            sender.sendMessage(MiniMessage.miniMessage().deserialize("<green>Download here: https://modrinth.com/plugin/rws/version/" + latestVersion));
+                        });
                     } else {
                         sender.sendMessage(MiniMessage.miniMessage().deserialize(Language.msg_prefix + Language.msg_no_perms));
                         return false;

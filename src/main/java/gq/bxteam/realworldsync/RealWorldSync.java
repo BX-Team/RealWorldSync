@@ -1,16 +1,23 @@
 package gq.bxteam.realworldsync;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import gq.bxteam.realworldsync.cmds.Commands;
 import gq.bxteam.realworldsync.config.Config;
 import gq.bxteam.realworldsync.config.Language;
 import gq.bxteam.realworldsync.hooks.PlaceholderAPIHook;
-import gq.bxteam.realworldsync.utils.UpdateChecker;
 import gq.bxteam.realworldsync.utils.log.LogType;
 import gq.bxteam.realworldsync.utils.log.LogUtil;
 import gq.bxteam.realworldsync.utils.metrics.Metrics;
 import gq.bxteam.realworldsync.world.WorldManager;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.Optional;
 
 public class RealWorldSync extends JavaPlugin {
     private static RealWorldSync plugin;
@@ -31,11 +38,11 @@ public class RealWorldSync extends JavaPlugin {
         getCommand("rws").setTabCompleter(new Commands());
 
         // Check for updates
-        if (Config.opt_check_for_updates) {
-            if (!UpdateChecker.fetchVersionFromGithub("https://raw.githubusercontent.com/BX-Team/RealWorldSync/master/VERSION", RealWorldSync.getPlugin().getDescription().getVersion())) {
-                LogUtil.sendConsoleLog("The new update of RealWorldSync was found! We recommend to update here: https://modrinth.com/plugin/rws", LogType.WARN);
-            }
-        }
+        checkForUpdates().ifPresent(latestVersion -> {
+            LogUtil.sendConsoleLog("&2An update is available: " + latestVersion, LogType.INFO);
+            LogUtil.sendConsoleLog("&2Please update to the latest version to get bug fixes, security patches and new features!", LogType.INFO);
+            LogUtil.sendConsoleLog("&2Download here: https://modrinth.com/plugin/rws/version/" + latestVersion, LogType.INFO);
+        });
 
         // Metrics initialize
         if (Config.opt_enable_metrics) {
@@ -103,5 +110,34 @@ public class RealWorldSync extends JavaPlugin {
     public void reload() {
         this.unload();
         this.load();
+    }
+
+    public static Optional<String> checkForUpdates() {
+        final String mcVersion = RealWorldSync.getPlugin().getServer().getMinecraftVersion();
+        final String pluginName = RealWorldSync.getPlugin().getPluginMeta().getName();
+        final String pluginVersion = RealWorldSync.getPlugin().getPluginMeta().getVersion();
+        try {
+            final HttpClient client = HttpClient.newHttpClient();
+            final HttpRequest req = HttpRequest.newBuilder()
+                    .uri(URI.create("https://api.modrinth.com/v2/project/1BY2Jy64/version?featured=true&game_versions=[%22" + mcVersion + "%22]"))
+                    .header("User-Agent",
+                            pluginName + "/" + pluginVersion
+                    )
+                    .GET()
+                    .build();
+            final HttpResponse<String> res = client.send(req, HttpResponse.BodyHandlers.ofString());
+            if (res.statusCode() < 400 && res.statusCode() >= 200 && res.body() != null) {
+                final JsonObject json = JsonParser.parseString(res.body()).getAsJsonArray().get(0).getAsJsonObject();
+                if (json.has("version_number")) {
+                    final String latestVersion = json.get("version_number").getAsString();
+                    if (!latestVersion.equals(pluginVersion))
+                        return Optional.of(latestVersion);
+                }
+            }
+        }
+        catch (final Exception e) {
+            LogUtil.sendConsoleLog("Failed to check for updates: " + e, LogType.ERROR);
+        }
+        return Optional.empty();
     }
 }

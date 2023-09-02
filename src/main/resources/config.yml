@@ -10,7 +10,6 @@
 # Modrinth: https://modrinth.com/plugin/rws
 
 options:
-  check-for-updates: true
   enable-metrics: true
 time:
   enabled: false

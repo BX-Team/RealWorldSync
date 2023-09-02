@@ -32,7 +32,7 @@ public class Language {
         cfg.addDefault("Help", "<gray>-----------<gray> [<green>RealWorldSync<gray>] -----------<newline><dark_green>» <green>/rws time <gray>- Shows time by timezone in config.<newline><dark_green>» <green>/rws reload <gray>- Reload the plugin.<newline><dark_green>» <green>/rws version <gray>- Shows the version currently installed");
         cfg.addDefault("Prefix", "<gray>[<green>RealWorldSync<gray>] <gray>");
         cfg.addDefault("NoPermission", "<red>You don't have permissions to do that.");
-        cfg.addDefault("Version", "<green>Current installed plugin version: <version>");
+        cfg.addDefault("Version", "<gray>Current installed plugin version: <version>");
         cfg.addDefault("Time", "<gold>Current world time: <time>");
         cfg.addDefault("TimeDisabled", "<red>Time is disabled in the config!");
         cfg.addDefault("ReloadComplete", "<green>Reload complete!");

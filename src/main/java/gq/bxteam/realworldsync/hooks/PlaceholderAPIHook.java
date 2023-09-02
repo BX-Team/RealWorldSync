@@ -35,9 +35,13 @@ public class PlaceholderAPIHook extends PlaceholderExpansion {
     }
 
     public String onRequest(OfflinePlayer player, @NotNull String identifier) {
-        if (identifier.equalsIgnoreCase("current_world_time")) {
+        if (identifier.equalsIgnoreCase("current_world_time_hhmm")) {
             ZonedDateTime zonedDateTime = WorldManager.getZonedDateTime();
             return zonedDateTime.getHour() + ":" + zonedDateTime.getMinute();
+        }
+        if (identifier.equalsIgnoreCase("current_world_time_hhmmss")) {
+            ZonedDateTime zonedDateTime = WorldManager.getZonedDateTime();
+            return zonedDateTime.getHour() + ":" + zonedDateTime.getMinute() + ":" + zonedDateTime.getSecond();
         }
 
         return null;
