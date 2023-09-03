@@ -21,8 +21,8 @@ repositories {
 }
 
 dependencies {
-    compileOnly "io.papermc.paper:paper-api:${project.paper_api}"
-    compileOnly "me.clip:placeholderapi:${project.placeholder_api}"
+    compileOnly("io.papermc.paper:paper-api:${project.paper_api}")
+    compileOnly("me.clip:placeholderapi:${project.placeholder_api}")
 }
 
 def targetJavaVersion = 17

@@ -3,8 +3,6 @@ package gq.bxteam.realworldsync.cmds;
 import gq.bxteam.realworldsync.RealWorldSync;
 import gq.bxteam.realworldsync.config.Config;
 import gq.bxteam.realworldsync.config.Language;
-import gq.bxteam.realworldsync.utils.log.LogType;
-import gq.bxteam.realworldsync.utils.log.LogUtil;
 import gq.bxteam.realworldsync.world.WorldManager;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
