@@ -5,16 +5,15 @@
 # ██║░░██║███████╗██║░░██║███████╗░░╚██╔╝░╚██╔╝░╚█████╔╝██║░░██║███████╗██████╔╝██████╔╝░░░██║░░░██║░╚███║╚█████╔╝
 # ╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝╚══════╝░░░╚═╝░░░╚═╝░░░╚════╝░╚═╝░░╚═╝╚══════╝╚═════╝░╚═════╝░░░░╚═╝░░░╚═╝░░╚══╝░╚════╝░
 
-# Wiki: https://github.com/BX-Team/RealWorldSync/wiki
+# Wiki: https://docs.bx-team.space/realworldsync/
 # Discord server: https://discord.gg/p7cxhw7E2M
 # Modrinth: https://modrinth.com/plugin/rws
 
-options:
-  enable-metrics: true
 time:
   enabled: false
   update-interval: 20
   timezone: 'Europe/Berlin'
+
 weather:
   enabled: false
   update-interval: 6000

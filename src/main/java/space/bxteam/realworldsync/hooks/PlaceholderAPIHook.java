@@ -1,7 +1,7 @@
-package gq.bxteam.realworldsync.hooks;
+package space.bxteam.realworldsync.hooks;
 
-import gq.bxteam.realworldsync.RealWorldSync;
-import gq.bxteam.realworldsync.world.WorldManager;
+import space.bxteam.realworldsync.RealWorldSync;
+import space.bxteam.realworldsync.managers.WorldManager;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.OfflinePlayer;
 import org.jetbrains.annotations.NotNull;
@@ -11,7 +11,7 @@ import java.time.ZonedDateTime;
 public class PlaceholderAPIHook extends PlaceholderExpansion {
     @Override
     public @NotNull String getAuthor() {
-        return RealWorldSync.getPlugin().getDescription().getAuthors().toString();
+        return RealWorldSync.getInstance().getDescription().getAuthors().toString();
     }
 
     @Override
@@ -21,7 +21,7 @@ public class PlaceholderAPIHook extends PlaceholderExpansion {
 
     @Override
     public @NotNull String getVersion() {
-        return RealWorldSync.getPlugin().getDescription().getVersion();
+        return RealWorldSync.getInstance().getDescription().getVersion();
     }
 
     @Override

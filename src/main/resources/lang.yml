@@ -1,0 +1,20 @@
+#  -------------------------------------
+# |    RealWorldSync Messages Config    |
+#  -------------------------------------
+# You can change all messages in this file, but don't change the keys
+# RealWorldSync supports HEX colors, and you can combine it with default Minecraft colors codes
+
+prefix: "&7[&aRealWorldSync&7] &7"
+no-permission: "&cYou don't have permission to do that."
+
+commands:
+  help:
+    - "&7------------------ &aRealWorldSync &7------------------"
+    - "&7- &a/rws time &7- &7Shows time by timezone in config."
+    - "&7- &a/rws reload &7- &7Reloads the plugin."
+    - "&7- &a/rws help &7- &7Shows this message."
+    - "&7- &a/rws version &7- &7Shows the plugin version."
+  time:
+    current: "&6Current world time: <time>"
+    disabled: "&cTime is disabled in the config!"
+  reload: "&aReload complete!"

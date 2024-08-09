@@ -1,4 +1,4 @@
-package gq.bxteam.realworldsync.utils;
+package space.bxteam.realworldsync.utils;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;

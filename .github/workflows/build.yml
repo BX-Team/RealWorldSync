@@ -29,5 +29,5 @@ jobs:
       - name: Upload RealWorldSync
         uses: actions/upload-artifact@v3.1.3
         with:
-          name: RealWorldSync Dev Artifacts
+          name: RealWorldSync
           path: "build/libs/RealWorldSync-*.jar"

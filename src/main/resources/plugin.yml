@@ -1,6 +1,6 @@
 name: RealWorldSync
 version: '${version}'
-main: gq.bxteam.realworldsync.RealWorldSync
+main: space.bxteam.realworldsync.RealWorldSync
 api-version: '1.16'
 load: POSTWORLD
 softdepend: [ PlaceholderAPI ]
