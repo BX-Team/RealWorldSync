@@ -25,7 +25,7 @@ jobs:
       - name: Build with Gradle
         uses: gradle/actions/setup-gradle@v3
         with:
-          arguments: build
+          arguments: 'shadowJar'
       - name: Upload RealWorldSync
         uses: actions/upload-artifact@v4.3.6
         with:
